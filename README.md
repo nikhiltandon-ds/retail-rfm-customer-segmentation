@@ -1,4 +1,11 @@
-# Retail Customer Analytics & RFM Segmentation 🛒📊
+# Retail Customer Analytics & RFM Segmentation
+
+### Live Interactive Dashboard
+🚀 Streamlit App:
+https://retail-rfm-segmentation.streamlit.app
+
+### GitHub Repository
+https://github.com/nikhiltandon-ds/retail-rfm-customer-segmentation
 
 This repository contains a data analytics project focusing on Customer Segmentation using Recency, Frequency, and Monetary (RFM) analysis on retail transactional data.
 
