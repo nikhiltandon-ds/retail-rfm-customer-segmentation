@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Behavioral Cohort Analysis & RFM Engine Showcase</title>
+    <style>
+:root {
+    --primary: #0f172a;
+    --secondary: #2563eb;
+    --accent: #10b981;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text: #334155;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+}
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: var(--primary);
+    color: white;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.025em;
+}
+.badge {
+    background-color: var(--secondary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.badge-accent { background-color: var(--accent); }
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+.hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+.hero h1 { margin: 0 0 0.5rem 0; font-size: 2.25rem; font-weight: 800; }
+.hero p { margin: 0; color: #94a3b8; font-size: 1.1rem; max-width: 800px; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.kpi-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    border-left: 4px solid var(--secondary);
+}
+.kpi-val { font-size: 1.75rem; font-weight: 700; color: var(--primary); margin: 0.25rem 0; }
+.kpi-title { font-size: 0.875rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; }
+.section {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2.25rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+}
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+.visual-placeholder {
+    background-color: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    border-radius: 0.5rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-light);
+    margin: 1.5rem 0;
+    font-weight: 500;
+}
+code {
+    background-color: #f1f5f9;
+    color: #db2777;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+ul { padding-left: 1.25rem; }
+li { margin-bottom: 0.5rem; }
+.btn {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+.btn:hover { background-color: #1d4ed8; }
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-brand">Nikhil Tandon | Data Analytics Portfolio</div>
+        <div><span class="badge badge-accent">Python Pipeline</span></div>
+    </div>
+    
+    <div class="container">
+        <div class="hero" style="background: linear-gradient(135deg, #065f46 0%, #0f172a 100%);">
+            <h1>E-Commerce Customer Behavioral RFM Segmentation</h1>
+            <p>Deploying statistical behavioral indexing and clustering layers to classify transaction logs into actionable marketing cohorts.</p>
+        </div>
+
+        <div class="grid">
+            <div class="kpi-card" style="border-left-color: #10b981;">
+                <div class="kpi-title">Active Customer Profiles</div>
+                <div class="kpi-val">4,300+ Accounts</div>
+            </div>
+            <div class="kpi-card" style="border-left-color: #2563eb;">
+                <div class="kpi-title">Core Engine Metrics</div>
+                <div class="kpi-val">R / F / M Metrics</div>
+            </div>
+            <div class="kpi-card" style="border-left-color: #f59e0b;">
+                <div class="kpi-title">Production Status</div>
+                <div class="kpi-val">Streamlit Ready</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">1. Marketing Strategy & Foundational Metrics</div>
+            <p>Treating all customers uniformly leads to sub-optimal marketing spend and lower retention. This project processes transactional data to evaluate three core behavioral vectors: <strong>Recency</strong> (days since last purchase), <strong>Frequency</strong> (total transactions completed), and <strong>Monetary Value</strong> (aggregate revenue contribution).</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">2. Engineering the Data Processing Pipeline</div>
+            <p>The preprocessing script cleans raw transaction lines using clear, reproducible steps:</p>
+            <pre style="background-color: #f1f5f9; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-family: monospace; font-size:0.9rem;">
+# Calculate baseline customer transaction parameters
+customer_matrix = df.groupby('CustomerID').agg({
+    'InvoiceDate': lambda x: (snapshot_date - x.max()).days,
+    'InvoiceNo': 'count',
+    'TotalRevenue': 'sum'
+}).rename(columns={'InvoiceDate': 'Recency', 'InvoiceNo': 'Frequency', 'TotalRevenue': 'Monetary'})
+            </pre>
+            <ul>
+                <li><strong>Outlier Management:</strong> Filtered skewed wholesale volumes using interquartile range (IQR) thresholds to stabilize cluster models.</li>
+                <li><strong>Scaling Protocols:</strong> Applied standard variance scaling to align large currency metrics with smaller absolute frequency indices.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">3. Customer Segment Profiles</div>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0; text-align: left;">
+                <thead>
+                    <tr style="background-color: #f1f5f9; border-bottom: 2px solid var(--border);">
+                        <th style="padding: 0.75rem;">Cohort Assignment</th>
+                        <th style="padding: 0.75rem;">Behavioral Characteristics</th>
+                        <th style="padding: 0.75rem;">Target Retention Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem; font-weight:600; color:#065f46;">VIP Champions</td>
+                        <td style="padding: 0.75rem;">Low Recency, High Frequency, High Value</td>
+                        <td style="padding: 0.75rem;">Provide early product releases and loyalty incentives.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem; font-weight:600; color:#1d4ed8;">Core Loyalists</td>
+                        <td style="padding: 0.75rem;">Moderate Recency, Consistent Frequency</td>
+                        <td style="padding: 0.75rem;">Deploy cross-selling recommendations to maximize basket size.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 0.75rem; font-weight:600; color:#b91c1c;">At Risk / Churn</td>
+                        <td style="padding: 0.75rem;">High Recency, Low Frequency, High Historical Value</td>
+                        <td style="padding: 0.75rem;">Launch automated win-back campaigns with targeted discounts.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">4. Streamlit Interactive Application Architecture</div>
+            <p>The analytics script integrates directly into a live Streamlit app (<code>app.py</code>), allowing business teams to dynamically slice cohorts using interactive filtering panels.</p>
+            <div class="visual-placeholder" style="background-color: #e6f4ea; border-color: #a7f3d0;">
+                📊 [Interactive Distribution View: Embed your seaborn boxplots or live Streamlit interface screenshots here]
+            </div>
+        </div>
+    </div>
+</body>
+</html>
